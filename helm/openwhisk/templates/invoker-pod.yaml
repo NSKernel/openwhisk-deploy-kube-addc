@@ -28,12 +28,15 @@ metadata:
   name: {{ .Release.Name }}-invoker
   labels:
     name: {{ .Release.Name }}-invoker
+  annotations:
+    io.containerd.cri.runtime-handler: kata
 {{ include "openwhisk.label_boilerplate" . | indent 4 }}
 spec:
 {{- if eq .Values.invoker.containerFactory.impl "kubernetes" }}
   podManagementPolicy: "Parallel"
   serviceName: {{ .Release.Name }}-invoker
   replicas: {{ .Values.invoker.containerFactory.kubernetes.replicaCount }}
+  runtimeClassName: kata
 {{- end }}
   selector:
     matchLabels:
@@ -44,8 +47,9 @@ spec:
         name: {{ .Release.Name }}-invoker
 {{ include "openwhisk.label_boilerplate" . | indent 8 }}
 
-      {{- if .Values.metrics.prometheusEnabled }}
       annotations:
+        io.containerd.cri.runtime-handler: kata
+      {{- if .Values.metrics.prometheusEnabled }}
         prometheus.io/scrape: 'true'
         prometheus.io/port:   '{{ .Values.invoker.port }}'
       {{- end }}
@@ -53,9 +57,9 @@ spec:
     spec:
 {{- if eq .Values.invoker.containerFactory.impl "kubernetes" }}
       serviceAccountName: {{ .Release.Name }}-invoker
+      runtimeClassName: kata
 {{- end }}
       restartPolicy: {{ .Values.invoker.restartPolicy }}
-
 {{- if .Values.affinity.enabled }}
       affinity:
 {{ include "openwhisk.affinity.invoker" . | indent 8 }}

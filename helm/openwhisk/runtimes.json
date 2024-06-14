@@ -2,12 +2,12 @@
     "runtimes": {
         "nodejs": [
             {
-                "kind": "nodejs:14",
+                "kind": "nodejs:18",
                 "default": true,
                 "image": {
-                    "prefix": "openwhisk",
-                    "name": "action-nodejs-v14",
-                    "tag": "1.20.0"
+                    "prefix": "whisk",
+                    "name": "action-nodejs-v18-addc",
+                    "tag": "local"
                 },
                 "deprecated": false,
                 "attached": {
@@ -28,6 +28,20 @@
                     }
                 ]
             },
+	    {
+		    "kind": "nodejs:14norm",
+		    "default": false,
+		    "image": {
+			    "prefix": "openwhisk",
+			    "name": "action-nodejs-v14",
+			    "tag": "1.20.0"
+		    },
+		    "deprecated": false,
+		    "attached": {
+			    "attachmentName": "codefile",
+			    "attachmentType": "text/plain"
+		    }
+	    },
             {
                 "kind": "nodejs:16",
                 "default": false,

@@ -141,7 +141,7 @@ whisk:
     openwhisk:
       buildDate: "2022-10-14-13:44:50Z"
       buildNo: "20221014"
-      gitTag: "ef725a653ab112391f79c274d8e3dcfb915d59a3"
+      gitTag: "6e2c7eb39cba3f405c2e1872f8655bddfe42b40f"
     openwhiskCli:
       tag: "1.1.0"
     openwhiskCatalog:
@@ -330,9 +330,9 @@ etcd:
 
 # Invoker configurations
 invoker:
-  imageName: "openwhisk/invoker"
-  imageTag: "ef725a6"
-  imagePullPolicy: "IfNotPresent"
+  imageName: "whisk/invoker"
+  imageTag: "latest"
+  imagePullPolicy: "Never"
   restartPolicy: "Always"
   runtimeDeleteTimeout: "30 seconds"
   port: 8080
