@@ -5,9 +5,9 @@
                 "kind": "nodejs:18",
                 "default": true,
                 "image": {
-                    "prefix": "whisk",
+                    "prefix": "nskernel",
                     "name": "action-nodejs-v18-addc",
-                    "tag": "local"
+                    "tag": "latest"
                 },
                 "deprecated": false,
                 "attached": {
@@ -16,7 +16,7 @@
                 },
                 "stemCells": [
                     {
-                        "initialCount": 2,
+                        "initialCount": 1,
                         "memory": "256 MB",
                         "reactive": {
                             "minCount": 1,
