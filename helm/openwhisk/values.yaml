@@ -141,7 +141,7 @@ whisk:
     openwhisk:
       buildDate: "2022-10-14-13:44:50Z"
       buildNo: "20221014"
-      gitTag: "6e2c7eb39cba3f405c2e1872f8655bddfe42b40f"
+      gitTag: "8d70b277d6823a5f3e23b4aff2d3916a16597af9"
     openwhiskCli:
       tag: "1.1.0"
     openwhiskCatalog:
